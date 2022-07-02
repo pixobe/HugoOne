@@ -3,11 +3,14 @@ module.exports = {
   content: ["content/**/*.md", "layouts/**/*.html"],
   theme: {
     colors: {
-      light: "#E7E3E6",
-      lighter: '#E1DFDF',
+      light: {
+        DEFAULT: "#E7E3E6",
+        100: '#DBD9DA',
+      },
       dark: {
         DEFAULT: "#414042",
-        100: "#1b191a"
+        100: "#1b191a",
+        200: "#1a1819"
       },
       primary: {
         DEFAULT: "#d9593e",
@@ -16,6 +19,7 @@ module.exports = {
       },
       white: "#ffffff",
       gray: {
+        900: "#111827",
         800: "#1f2937",
         700: "#374151",
         500: "#6b7280",
@@ -31,8 +35,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      "logo": ['ui-font-logo', 'ui-font-body'],
-      "body": ['ui-font-body', "Arial"],
+      "logo": ['Figtree'],
+      "body": ['Figtree'],
     },
     extend: {
     },
