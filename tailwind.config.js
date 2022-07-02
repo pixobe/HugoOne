@@ -35,8 +35,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      "logo": ['Figtree'],
-      "body": ['Figtree'],
+      "logo": ["Helvetica Neue", "Helvetica, Arial", "Lucida Grande", "sans - serif"],
+      "body": ["Helvetica Neue", "Helvetica, Arial", "Lucida Grande", "sans - serif"],
     },
     extend: {
     },
