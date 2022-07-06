@@ -7,9 +7,15 @@
   <!-- For home screen-->
   {{ if .IsHome }} {{ $Description = .Site.Params.Home.subtitle }}
   <!-- Otherwise-->
-  {{ else }} {{ if .Site.Params.Description }}{{ $Description =
-  .Site.Params.Description }}{{ else }}{{ $Description = .Summary | plainify
-  }}{{ end }}{{ end }}
+  {{ else if .Page.Description}}
+  <!-- check if there is page desc-->
+  {{ $Description = .Page.Description }}
+  <!---->
+  {{ else if .Site.Params.Description }}
+  <!--2-->
+  {{ $Description = .Site.Params.Description }}
+  <!--default-->
+  {{ else }} {{ $Description = .Summary | plainify }} {{ end }}
 
   <meta
     name="viewport"
@@ -28,17 +34,23 @@
   <meta name="theme-color" content="{{ .Site.Params.themeColor }}" />
 
   <!-- block title-->
-  {{ $Title := ""}}
+  {{ $Title := .Title}}
   <!-- Title -->
-  <!-- define title-->
-  {{ if .IsHome }} {{ $Title = print .Site.Title " - " $Title }} {{ else }} {{
-  $Title = print .Page.Description " - " .Site.Title }} {{ end }}
+  {{ if .IsHome }} {{ $Title = print .Site.Title " - " .Site.Params.description
+  }} {{ else }} {{ $Title = print .Page.Description " - " .Site.Title }} {{ end
+  }}
+
   <title>{{$Title}}</title>
 
   <!-- Check if an image exist inthe path then add to meta else fall back to logo.-->
   {{- $image := resources.Get ( printf "images/%s/%s.jpg" .Section (lower
-  (replaceRE "(\\s)" "-" .Title))) -}} {{if not ($image) }} {{ $image =
-  "images/cover.png"}} {{end}} {{$image = printf "%s/%s" .Site.BaseURL $image}}
+  (replaceRE "(\\s)" "-" .Title))) -}}
+
+  <!-- if an image doesnt exist for a section get from base url-->
+  {{if not ($image) }} {{ $image = "images/cover.png"}} {{end}}
+
+  <!-- image-->
+  {{$image =printf "%s/%s" .Site.BaseURL $image}}
 
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="og:type" content="image" />
