@@ -1,3 +1,3 @@
-{{- $fname:=print "themes/hugo-tech/static/icons/" . ".svg" -}} {{-
-$path:="<svg" -}} {{- $fill:="<svg class=\"h-6 w-6\"" -}} {{ replace (readFile
+{{- $fname:=print "themes/HugoOne/static/icons/" . ".svg" -}} {{- $path:="<svg"
+-}} {{- $fill:="<svg class=\"h-6 w-6 ml-2 -mr-1\"" -}} {{ replace (readFile
 $fname) $path $fill | safeHTML }}
