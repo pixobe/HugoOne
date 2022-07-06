@@ -1,0 +1,11 @@
+<div class="w-full flex flex-wrap">
+  {{ $image := resources.Get .image }} {{ $image := $image.Resize "300x" }}
+  <div class="bg-complimentary border border-complimentary">
+    <img
+      class="object-contain bg-white h-36 w-36"
+      src="{{$image.Permalink}}"
+      height="36px"
+      alt="user image"
+    />
+  </div>
+</div>

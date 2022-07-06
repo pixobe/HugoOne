@@ -3,22 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-}
-
-@layer components {
-  .page-section h3 {
+  h3 {
     @apply text-lg;
     @apply my-5;
     @apply text-lg;
     @apply text-complimentary;
   }
+}
 
+@layer components {
   .page-section ol {
     @apply list-decimal;
   }
@@ -28,7 +21,8 @@
 
   .page-section ol li,
   .page-section ul li {
-    @apply m-5;
+    @apply my-2.5;
+    @apply mx-5;
   }
 
   .page-section a {
@@ -38,7 +32,7 @@
 
   .page-section pre {
     @apply bg-primary-200;
-    @apply text-font-200;
+    @apply text-secondary-200;
     @apply text-sm;
     @apply p-5;
     @apply break-words;

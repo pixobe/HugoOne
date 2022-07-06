@@ -17,15 +17,23 @@
     </div>
 
     <div class="bg-white p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full">
-      {{ range .Pages.ByPublishDate.Reverse }}
-      <!-- published date-->
-      <!---->
-      {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2022" }}
-      <!-- card-->
-      <a href="{{ .RelPermalink }}" class="no-underline hover:bg-slate">
-        {{partial "cards/card.html" (dict "Title" .Title "Subtitle" "" "Content"
-        .Summary "Date" $dateFormat)}} {{ end }}
-      </a>
+      <div class="grid grid-cols-4 gap-4">
+        {{ range .Pages.ByPublishDate.Reverse }}
+        <!-- published date-->
+        <!---->
+        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2022" }}
+        <!-- card-->
+        <!--Image-->
+        {{ if .Params.image}}
+        <a
+          href="{{ .RelPermalink }}"
+          class="no-underline hover:bg-slate hover:scale-110"
+        >
+          {{partial "cards/card-small.html" (dict "Title" .Title "Subtitle" ""
+          "Content" .Summary "Date" $dateFormat "image" .Params.image)}}
+        </a>
+        {{end}} {{ end }}
+      </div>
     </div>
   </section>
 </main>

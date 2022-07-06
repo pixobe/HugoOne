@@ -5,8 +5,13 @@ module.exports = {
     colors: {
       primary: {
         DEFAULT: "#91CEE2",
-        100: "#ADDAE9",
-        200: "#143C4A"
+        100: "#a7d7e7",
+        200: "#143C4A",
+      },
+      secondary: {
+        DEFAULT: "#1D2753",
+        100: "#e2e8f0",
+        200: "#F3FAFC"
       },
       accent: {
         DEFAULT: "#B93622"
@@ -15,10 +20,8 @@ module.exports = {
         DEFAULT: "#e2ac91"
       },
       white: "#ffffff",
-      font: {
-        DEFAULT: "#1D2753",
-        100: "#F2F2F2",
-        200: "#F3FAFC"
+      orange: {
+        DEFAULT: "#fb923c"
       }
     },
     fontFamily: {

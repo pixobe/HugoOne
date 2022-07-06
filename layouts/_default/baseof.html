@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   {{- partial "head.html" . -}}
-  <body class="bg-primary text-font flex flex-col h-screen">
+  <body class="bg-primary text-secondary flex flex-col h-screen">
     {{- partial "header.html" . -}}
     <div id="content" class="mb-auto">{{- block "main" . }}{{- end }}</div>
     {{- partial "footer.html" . -}} {{- partial "scripts.html" . -}}

@@ -1,0 +1,18 @@
+<section
+  class="container mx-auto my-24 text-center"
+  role="contentinfo"
+  aria-label="Testiminial of users"
+>
+  <h2 class="text-2xl">Testimonials</h2>
+  <div
+    class="grid grid-rows-3 md:grid-rows-1 gap-16 md:grid-cols-3 md:gap-8 justify-center mt-20"
+  >
+    {{ range .Site.Params.testimonial}}
+    <!---->
+    <div class="w-full md:w-252">
+      {{ partial "cards/card-testimonial.html" . }}
+    </div>
+    <!---->
+    {{end}}
+  </div>
+</section>

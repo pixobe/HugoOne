@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="h-screen">
+<div>
   <section class="text-center md:text-left">
     <div
       class="grid justify-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
@@ -21,7 +21,7 @@
         {{if .Site.Params.home.primaryButton}}
         <a
           href="{{.Site.Params.home.primaryButtonUrl}}"
-          class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-font-200 rounded-lg bg-accent hover:bg-primary-200 focus:ring-4 focus:ring-primary-300"
+          class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-secondary-200 rounded-lg bg-accent hover:bg-primary-200 focus:ring-4 focus:ring-primary-300"
         >
           {{.Site.Params.home.primaryButton}}
         </a>
@@ -40,9 +40,11 @@
         <img src="{{$image.Permalink}}" alt="mockup" />
         {{end}}
         <!-- Instead of custom hero image above-->
-        {{- block "custom-heroimg" . }}{{- end }}
+        {{ partial .Params.hero_img}}
       </div>
     </div>
   </section>
+  <!-- Content -->
+  <div>{{.Content}}</div>
 </div>
 {{ end }}

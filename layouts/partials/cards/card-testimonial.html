@@ -1,0 +1,22 @@
+<div
+  class="w-full bg-complimentary text-secondary-300 text-center rounded-lg relative"
+>
+  {{ $image := resources.GetRemote .image }}
+  <img
+    class="object-cover bg-white absolute -top-12 right-0 left-0 mx-auto h-24 w-24 rounded-full border border-complimentary shadow-sm"
+    src="{{$image.Permalink}}"
+    alt="user image"
+  />
+  <h3 class="capitalize pt-14 h-24">{{.name}}</h3>
+  <div
+    class="p-8 bg-white text-secondary font-sm border border-complimentary rounded-b-lg text-center"
+  >
+    <div class="w-full flex flex-row text-orange mx-auto justify-center">
+      {{partial "icon.html" "star-fill"}} {{partial "icon.html" "star-fill"}}
+      {{partial "icon.html" "star-fill"}} {{partial "icon.html" "star-fill"}}
+      {{partial "icon.html" "star-fill"}}
+    </div>
+    <h4 class="font-medium my-4" aria-label="Testimonial Title">{{.title}}</h4>
+    <p>{{.text}}</p>
+  </div>
+</div>
