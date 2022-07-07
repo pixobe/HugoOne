@@ -3,19 +3,12 @@
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  {{$description := ""}}
-  <!-- For home screen-->
-  {{ if .IsHome }} {{ $description = .Site.Params.Home.subtitle }}
-  <!-- Otherwise-->
-  {{ else if .Page.Description}}
-  <!-- check if there is page desc-->
-  {{ $description = .Page.Description }}
+  {{$description := .Site.Params.Description}}
   <!---->
-  {{ else if .Site.Params.Description }}
-  <!--2-->
-  {{ $description = .Site.Params.Description }}
-  <!--default-->
-  {{ else }} {{ $description = .Page.Summary | plainify }} {{ end }}
+  {{ if not .IsHome}}
+  <!---->
+  {{ if .Page.Description}} {{ $description = .Page.Description }} {{ else }} {{
+  $description = .Page.Summary | plainify }} {{ end }} {{ end }}
 
   <meta
     name="viewport"
@@ -38,7 +31,7 @@
   <!-- Title -->
   {{ if .IsHome }}
   <!---->
-  {{ $Title = print .Site.Title " - " .Site.Params.description }}
+  {{ $Title = print .Site.Title " - " .Site.Params.home.title }}
   <!---->
   {{ else if .Page.Description}} {{ $Title = print .Page.Description " - "
   .Site.Title }}

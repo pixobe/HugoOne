@@ -29,6 +29,9 @@ module.exports = {
       "body": ["Body Font", "Helvetica Neue", "Helvetica, Arial", "Lucida Grande", "sans - serif"],
     },
     extend: {
+      gridTemplateColumns: {
+        footer: "1fr auto"
+      }
     },
   },
   plugins: [],
