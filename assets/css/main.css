@@ -12,25 +12,28 @@
 }
 
 @layer components {
-  .page-section ol {
+  .page {
+    @apply drop-shadow-md;
+  }
+  .page ol {
     @apply list-decimal;
   }
-  .page-section ul {
+  .page ul {
     @apply list-disc;
   }
 
-  .page-section ol li,
-  .page-section ul li {
+  .page ol li,
+  .page ul li {
     @apply my-2.5;
     @apply mx-5;
   }
 
-  .page-section a {
+  .page a {
     @apply underline;
     @apply hover:text-complimentary;
   }
 
-  .page-section pre {
+  .page pre {
     @apply bg-primary-200;
     @apply text-secondary-200;
     @apply text-sm;
@@ -39,16 +42,16 @@
     @apply my-5;
     @apply rounded-sm;
   }
-  .page-section table {
+  .page table {
     @apply w-full;
   }
 
-  .page-section table tr {
+  .page table tr {
     @apply border;
   }
 
-  .page-section table tr td,
-  .page-section table tr th {
+  .page table tr td,
+  .page table tr th {
     @apply border;
     @apply border-collapse;
     @apply p-3;

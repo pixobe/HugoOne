@@ -1,41 +1,47 @@
 {{ define "main" }}
 <main class="min-h-screen">
   <section
-    class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 drop-shadow-md mt-0 md:mt-5 max-w-screen-md"
+    class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 mt-0 md:mt-5 max-w-screen-md"
   >
-    <div class="bg-complimentary text-white">
-      <div class="p-6 md:p-10 mx-auto max-w-screen-xl">
-        <div class="py-6">
-          <h1
-            class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl"
-          >
-            {{.Page.Title}}
-          </h1>
-          <h2 class="font-medium">{{.Params.Subtitle}}</h2>
+    {{ partial "breadcrumb.html" .}}
+
+    <div class="drop-shadow-md">
+      <div class="bg-complimentary text-white">
+        <div class="p-6 md:p-10 mx-auto max-w-screen-xl">
+          <div class="py-6">
+            <h1
+              class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl"
+            >
+              {{.Page.Title}}
+            </h1>
+            <h2 class="font-medium">{{.Params.Subtitle}}</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="bg-white p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full">
-      <div class="grid grid-cols-4 gap-4">
-        {{ range .Pages.ByPublishDate.Reverse }}
-        <!-- published date-->
-        <!---->
-        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2022" }}
-        <!-- card-->
-        <!--Image-->
-        {{ if .Params.image}}
-        <!--resize-->
-        {{ $image := resources.Get .Params.image }} {{ $image := $image.Resize
-        "144x" }}
-        <a
-          href="{{ .RelPermalink }}"
-          class="no-underline hover:bg-slate hover:scale-110"
-        >
-          {{partial "cards/card-small.html" (dict "Title" .Title "Subtitle" ""
-          "Content" .Summary "Date" $dateFormat "Image" $image.Permalink)}}
-        </a>
-        {{end}} {{ end }}
+      <div
+        class="bg-white p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full"
+      >
+        <div class="grid grid-cols-4 gap-4">
+          {{ range .Pages.ByPublishDate.Reverse }}
+          <!-- published date-->
+          <!---->
+          {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2022" }}
+          <!-- card-->
+          <!--Image-->
+          {{ if .Params.image}}
+          <!--resize-->
+          {{ $image := resources.Get .Params.image }} {{ $image := $image.Resize
+          "144x" }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="no-underline hover:bg-slate hover:scale-110"
+          >
+            {{partial "cards/card-small.html" (dict "Title" .Title "Subtitle" ""
+            "Content" .Summary "Date" $dateFormat "Image" $image.Permalink)}}
+          </a>
+          {{end}} {{ end }}
+        </div>
       </div>
     </div>
   </section>

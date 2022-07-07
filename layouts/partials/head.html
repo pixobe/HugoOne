@@ -3,19 +3,19 @@
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  {{$Description := ""}}
+  {{$description := ""}}
   <!-- For home screen-->
-  {{ if .IsHome }} {{ $Description = .Site.Params.Home.subtitle }}
+  {{ if .IsHome }} {{ $description = .Site.Params.Home.subtitle }}
   <!-- Otherwise-->
   {{ else if .Page.Description}}
   <!-- check if there is page desc-->
-  {{ $Description = .Page.Description }}
+  {{ $description = .Page.Description }}
   <!---->
   {{ else if .Site.Params.Description }}
   <!--2-->
-  {{ $Description = .Site.Params.Description }}
+  {{ $description = .Site.Params.Description }}
   <!--default-->
-  {{ else }} {{ $Description = .Summary | plainify }} {{ end }}
+  {{ else }} {{ $description = .Page.Summary | plainify }} {{ end }}
 
   <meta
     name="viewport"
@@ -25,7 +25,7 @@
     name="author"
     content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ range .Site.Author }}{{ . }} {{ end }}{{ end }}"
   />
-  <meta name="description" content="{{$Description}}" />
+  <meta name="description" content="{{$description}}" />
   <meta
     name="keywords"
     content="{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}"
@@ -36,34 +36,40 @@
   <!-- block title-->
   {{ $Title := .Title}}
   <!-- Title -->
-  {{ if .IsHome }} {{ $Title = print .Site.Title " - " .Site.Params.description
-  }} {{ else }} {{ $Title = print .Page.Description " - " .Site.Title }} {{ end
-  }}
+  {{ if .IsHome }}
+  <!---->
+  {{ $Title = print .Site.Title " - " .Site.Params.description }}
+  <!---->
+  {{ else if .Page.Description}} {{ $Title = print .Page.Description " - "
+  .Site.Title }}
+  <!-- else-->
+  {{ else}} {{ $Title = print .Page.Title " - " .Site.Title }} {{ end }}
 
   <title>{{$Title}}</title>
 
-  <!-- Check if an image exist inthe path then add to meta else fall back to logo.-->
+  <!-- Check if an image exist in the path then add to meta else fall back to logo.-->
   {{- $image := resources.Get ( printf "images/%s/%s.jpg" .Section (lower
   (replaceRE "(\\s)" "-" .Title))) -}}
 
   <!-- if an image doesnt exist for a section get from base url-->
-  {{if not ($image) }} {{ $image = "images/cover.png"}} {{end}}
+  {{if not ($image) }} {{ $image = "images/social-media-card.png"}} {{end}}
 
   <!-- image-->
-  {{$image =printf "%s/%s" .Site.BaseURL $image}}
+  <!-- get resource-->
+  {{ $image_resource := resources.Get $image}}
 
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="og:type" content="image" />
   <meta property="og:title" content="{{$Title}}" />
-  <meta property="og:description" content="{{$Description}}" />
-  <meta property="og:image" content="{{$image}}" />
+  <meta property="og:description" content="{{$description}}" />
+  <meta property="og:image" content="{{$image_resource.Permalink}}" />
   <!-- Twitter -->
   <meta property="twitter:card" content="summary" />
   <meta name="twitter:site" content="{{.Site.Params.twitter}}" />
   <meta property="twitter:url" content="{{.Site.BaseURL}}" />
   <meta property="twitter:title" content="{{$Title}}" />
-  <meta property="twitter:description" content="{{$Description}}" />
-  <meta property="twitter:image" content="{{$image}}" />
+  <meta property="twitter:description" content="{{$description}}" />
+  <meta property="twitter:image" content="{{$image_resource.Permalink}}" />
 
   <!-- others-->
   <link rel="canonical" href="{{ .Permalink }}" />

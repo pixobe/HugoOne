@@ -1,23 +1,28 @@
 {{ define "main" }}
 <main class="min-h-screen">
   <section
-    class="page-section container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 drop-shadow-md mt-0 md:mt-5 max-w-screen-md"
+    class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 mt-0 md:mt-5 max-w-screen-md"
   >
-    <div class="bg-complimentary text-white">
-      <div class="p-6 md:p-10 mx-auto max-w-screen-xl">
-        <div class="py-6">
-          <h1
-            class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl"
-          >
-            {{.Page.Title}}
-          </h1>
-          <h2 class="font-medium">{{.Params.Subtitle}}</h2>
+    {{ partial "breadcrumb.html" .}}
+    <div class="page">
+      <div class="bg-complimentary text-white">
+        <div class="p-6 md:p-10 mx-auto max-w-screen-xl">
+          <div class="py-6">
+            <h1
+              class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl"
+            >
+              {{.Page.Title}}
+            </h1>
+            <h2 class="font-medium">{{.Params.Subtitle}}</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="bg-white p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full">
-      {{ .Content }}
+      <div
+        class="bg-white p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full"
+      >
+        {{ .Content }}
+      </div>
     </div>
   </section>
 </main>
