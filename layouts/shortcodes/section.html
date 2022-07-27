@@ -1,6 +1,6 @@
-<section class="text-center prose-lg bg-slate-50 p-6">
+<section class="text-center prose-lg bg-slate-50 p-6 text-[#444444]">
   {{ range .Page.Params.Sections }}
-  <h2 class="text-4xl">{{.Title}}</h2>
+  <h2 class="text-4xl font-bold">{{.Title}}</h2>
   <p class="mt-5 text-gray-700">{{.Description}}</p>
   <div class="flex flex-wrap flex-row gap-6 justify-center">
     {{ range .Features }}
@@ -8,7 +8,7 @@
       class="border border-1 border-slate-300 w-80 rounded-xl shadow-md p-4 bg-white"
     >
       <figure
-        class="flex flex-col justify-center text-{{.Color}}-300"
+        class="flex  justify-center text-{{.Color}}-300 not-prose"
         alt="Feature"
       >
         {{ partial "icon.html" (dict "Icon" .Icon "Size" "16")}}
@@ -18,7 +18,6 @@
       <div>
         <button class="btn btn-success text-white">Know More</button>
       </div>
-      <div class="h-16 w-16 text-green-300 text-amber-300 text-blue-300"></div>
     </div>
     {{ end }}
   </div>
