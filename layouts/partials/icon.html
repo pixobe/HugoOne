@@ -1,3 +1,9 @@
-{{- $fname:=print "themes/hugo-tech/static/icons/" . ".svg" -}} {{-
-$path:="<svg" -}} {{- $fill:="<svg class=\"h-6 w-6\"" -}} {{ replace (readFile
-$fname) $path $fill | safeHTML }}
+{{ $size := 6}} {{ if .Size}} {{ $size = .Size}} {{ end }}
+<!---->
+{{- $fname:=print "themes/hugo-tech/static/icons/" .Icon ".svg" -}}
+<!---->
+{{- $path:="<svg" -}}
+<!---->
+{{- $fill:= print "<svg class=\"h-" $size " w-" $size "\"" -}}
+<!---->
+{{ replace (readFile $fname) $path $fill | safeHTML }}

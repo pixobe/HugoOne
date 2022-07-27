@@ -1,0 +1,26 @@
+<section class="text-center prose-lg bg-slate-50 p-6">
+  {{ range .Page.Params.Sections }}
+  <h2 class="text-4xl">{{.Title}}</h2>
+  <p class="mt-5 text-gray-700">{{.Description}}</p>
+  <div class="flex flex-wrap flex-row gap-6 justify-center">
+    {{ range .Features }}
+    <div
+      class="border border-1 border-slate-300 w-80 rounded-xl shadow-md p-4 bg-white"
+    >
+      <figure
+        class="flex flex-col justify-center text-{{.Color}}-300"
+        alt="Feature"
+      >
+        {{ partial "icon.html" (dict "Icon" .Icon "Size" "16")}}
+      </figure>
+      <h3 class="font-semibold text-gray-600">{{.Title}}</h3>
+      <p class="font-thin text-base antialiased">{{.Description}}</p>
+      <div>
+        <button class="btn btn-success text-white">Know More</button>
+      </div>
+      <div class="h-16 w-16 text-green-300 text-amber-300 text-blue-300"></div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
