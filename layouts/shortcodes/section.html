@@ -16,7 +16,9 @@
       <h3 class="font-semibold">{{.Title}}</h3>
       <p class="font-thin text-base antialiased">{{.Description}}</p>
       <div>
-        <button class="btn btn-success text-white">Know More</button>
+        <a class="btn btn-success text-white" href="{{.ButtonLink}}"
+          >{{.ButtonLabel }}</a
+        >
       </div>
     </div>
     {{ end }}

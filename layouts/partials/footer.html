@@ -11,7 +11,9 @@
   <div style="background-color: rgba(0, 0, 0, 0.1)" class="text-secondary">
     <footer class="footer items-center p-10 w-[80%] mx-auto">
       <div class="items-center grid-flow-col">
-        <div class="w-5 h-5">{{ partial "svg" "facebook" }}</div>
+        <div class="w-5 h-5 text-secondary">
+          {{ partial "svg" .Site.Params.svg_logo }}
+        </div>
         <p>Copyright © 2022 - All right reserved</p>
       </div>
       <div
@@ -19,7 +21,7 @@
       >
         {{ range .Site.Params.Footer.socialmedia }}
         <a href="{{.URL}}" target="_blank" alt="{{.Media}}">
-          <div class="w-5 h-5">{{ partial "svg" "facebook" }}</div>
+          <div class="w-6 h-6">{{ partial "svg" .Icon }}</div>
         </a>
         {{end}}
       </div>

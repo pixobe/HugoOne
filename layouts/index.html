@@ -3,16 +3,15 @@
   <div
     class="hero-content flex flex-col-reverse md:flex-row w-full lg:w-[80%] justify-between gap-8"
   >
+    {{ with .Site.Params.Hero}}
     <div>
-      <h1 class="text-[40px] md:!leading-normal font-bold">
-        {{.Site.Params.Hero.Title}}
-      </h1>
-      <p class="py-6 text-2xl !leading-normal">{{.Site.Params.Hero.Caption}}</p>
-      <button class="btn btn-accent">Get Started</button>
+      <h1 class="text-[40px] md:!leading-normal font-bold">{{.Title}}</h1>
+      <p class="py-6 text-2xl !leading-normal">{{.Caption}}</p>
+      <a class="btn btn-accent" href="{{.cta_link}}">{{.cta_button}}</a>
     </div>
-    {{ with .Site.Params.Hero.Image}}
+    {{ with .Image}}
     <img src="{{.}}" width="500px" />
-    {{ end }}
+    {{ end }} {{end}}
   </div>
 </div>
 <div>{{.Content}}</div>

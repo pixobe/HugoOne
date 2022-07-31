@@ -21,7 +21,7 @@ module.exports = {
       {
         hugotech: {
           primary: "#002e47",
-          secondary: "#93B4D8",
+          secondary: "#90b0d0",
           accent: "#ff9d28",
           neutral: "#363a41",
           "base-100": "#FFFFFF",

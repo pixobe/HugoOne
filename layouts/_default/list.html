@@ -1,21 +1,9 @@
 {{ define "main" }}
 <div class="min-h-screen bg-slate-50 text-neutral">
-   <div class=" w-full bg-primary text-white p-10 text-center font-bold">
+  <div class="w-full bg-primary text-white p-10 text-center font-bold">
     <h1 class="text-4xl my-6">{{ .Title }}</h1>
-    <h2 class="text-xl font-thin  antialiased">{{.Description}}</h2>
-   </div>
-   <div class="w-full md:w-[80%] mx-auto">
-    {{ range .Pages.ByPublishDate.Reverse }}
-    <p>
-        <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ partial "metadata.html" . }}
-        <a class="summary" href="{{ .RelPermalink }}">
-            <p>{{ .Summary }}</p>
-        </a>
-    </p>
-    {{ end }}
-   </div>
-   <div>{{.Content}}</div>
+    <h2 class="text-xl font-thin antialiased">{{.Description}}</h2>
+  </div>
+  <div>{{.Content}}</div>
 </div>
-
 {{ end }}
