@@ -5,6 +5,7 @@ module.exports = {
     "content/**/*.md", "layouts/**/*.html"
   ],
   darkMode: "media",
+  safelist: [],
   theme: {
     extend: {},
   },
@@ -19,10 +20,10 @@ module.exports = {
     themes: [
       {
         hugotech: {
-          primary: "#5D35CA",
-          secondary: "#F000B8",
-          accent: "#37CDBE",
-          neutral: "#3D4451",
+          primary: "#002e47",
+          secondary: "#93B4D8",
+          accent: "#ff9d28",
+          neutral: "#363a41",
           "base-100": "#FFFFFF",
           info: "#3ABFF8",
           success: "#22BAA1",

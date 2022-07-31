@@ -1,19 +1,19 @@
-<section class="text-center prose-lg bg-slate-50 p-6 text-[#444444]">
+<section class="text-center prose-lg bg-slate-50 p-6 text-neutral">
   {{ range .Page.Params.Sections }}
-  <h2 class="text-4xl font-bold">{{.Title}}</h2>
-  <p class="mt-5 text-gray-700">{{.Description}}</p>
+  <h2 class="text-3xl font-bold">{{.Title}}</h2>
+  <p class="text-base subpixel-antialiased">{{.Description}}</p>
   <div class="flex flex-wrap flex-row gap-6 justify-center">
     {{ range .Features }}
     <div
-      class="border border-1 border-slate-300 w-80 rounded-xl shadow-md p-4 bg-white"
+      class="border border-1 border-gray-200 w-80 rounded-xl shadow-sm p-4 bg-white subpixel-antialiased"
     >
       <figure
-        class="flex  justify-center text-{{.Color}}-300 not-prose"
+        class="flex justify-center {{.IconColor}} not-prose h-16 w-16 mx-auto "
         alt="Feature"
       >
-        {{ partial "icon.html" (dict "Icon" .Icon "Size" "16")}}
+        {{ partial "svg" .Icon }}
       </figure>
-      <h3 class="font-semibold text-gray-600">{{.Title}}</h3>
+      <h3 class="font-semibold">{{.Title}}</h3>
       <p class="font-thin text-base antialiased">{{.Description}}</p>
       <div>
         <button class="btn btn-success text-white">Know More</button>

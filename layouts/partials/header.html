@@ -1,4 +1,4 @@
-<div class="bg-primary text-white">
+<nav class="bg-primary text-white">
   <div class="navbar w-full lg:w-[80%] mx-auto">
     <div class="navbar-start">
       {{ $image_resource := resources.Get "/images/logo.png"}}
@@ -13,11 +13,28 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="flex flex-row gap-6 font-normal">
+        {{ $currentPage := .Page}}
+
+        <!---->
         {{ range .Site.Menus.main }}
-        <li class="tracking-wider"><a href="">{{ .Name }}</a></li>
+        <!---->
+        {{ $isCurrentPage := eq $currentPage.RelPermalink .URL }}
+        <!---->
+        <li
+          class="tracking-wider {{if $isCurrentPage}} text-secondary {{ end}} "
+          {{
+          if
+          $isCurrentPage
+          }}
+          aria-current="page"
+          {{end}}
+        >
+          <a href="{{ .URL | relLangURL}}">{{ .Name }}</a>
+        </li>
         {{ end }}
+        <!---->
       </ul>
     </div>
     <div class="navbar-end"></div>
   </div>
-</div>
+</nav>
