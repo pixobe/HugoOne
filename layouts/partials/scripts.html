@@ -2,14 +2,24 @@
 
 <!-- check site wide-->
 <!--custom js-->
-{{ range $val := $.Site.Params.customJS }} {{ if gt (len $val) 0 }} {{ if isset
-$val "type" }}
-<script src="{{ .src }}" type="module"></script>
-{{ else if isset $val "nomodule"}}
-<script src="{{ .src }}" nomodule=""></script>
-{{ else }}
-<script src="{{ .src }}" defer></script>
-{{ end }} {{ end }} {{ end }}
+{{ range .Site.Params.customJS }}
+<script
+  src="{{ .src }}"
+  {{if
+  .defer}}
+  defer
+  {{
+  end}}
+  {{if
+  .module}}
+  type="module"
+  {{end}}
+  {{if
+  .nomodule}}
+  nomodule{{end}}
+></script>
+
+{{ end }}
 
 <!-- check page specific -->
 {{ range .Page.Params.customJS }}

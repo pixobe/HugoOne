@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="hugotech">
   {{- partial "head.html" . -}}
-  <body class="bg-base-200 text-neutral font-body">
+  <body class="text-neutral bg-gray-50 font-body">
     {{- partial "header.html" . -}}
     <div id="content">{{- block "main" . }}{{- end }}</div>
     {{- partial "footer.html" . -}} {{- partial "scripts.html" . -}}

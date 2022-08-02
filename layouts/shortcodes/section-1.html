@@ -1,0 +1,27 @@
+{{ $sectionId := .Get "id"}}
+<!---->
+
+{{ $section := ""}}
+<!---->
+{{ with .Page.Params}}
+<!---->
+{{ $section = .Get $sectionId}}
+<!---->
+{{ end }}
+
+<div class="prose-base p-6 text-neutral p-[50px]">
+  <div class="text-center">
+    <h2 class="text-4xl font-semibold">{{$section.Title}}</h2>
+    <p>{{$section.Description | markdownify}}</p>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-2">
+    <div class="w-96 rounded-md text-neutral">
+      <div class="card-body">
+        <h2 class="mt-2">{{$section.Card.Title}}</h2>
+        <p>{{$section.Card.Description}}</p>
+      </div>
+    </div>
+    <div>{{.Inner}}</div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 <section class="text-center prose-lg bg-slate-50 p-6 text-neutral">
   {{ range .Page.Params.Sections }}
-  <h2 class="text-3xl font-bold">{{.Title}}</h2>
-  <p class="text-base subpixel-antialiased">{{.Description}}</p>
+  <h2 class="text-4xl font-bold">{{.Title}}</h2>
+  <p class="text-lg">{{.Description}}</p>
   <div class="flex flex-wrap flex-row gap-6 justify-center">
     {{ range .Features }}
     <div
-      class="border border-1 border-gray-200 w-80 rounded-xl shadow-sm p-4 bg-white subpixel-antialiased"
+      class="border border-1 border-gray-200 w-80 rounded-xl shadow-sm p-4 bg-white"
     >
       <figure
         class="flex justify-center {{.IconColor}} not-prose h-16 w-16 mx-auto "
@@ -14,7 +14,7 @@
         {{ partial "svg" .Icon }}
       </figure>
       <h3 class="font-semibold">{{.Title}}</h3>
-      <p class="font-thin text-base antialiased">{{.Description}}</p>
+      <p class="text-lg">{{.Description}}</p>
       <div>
         <a class="btn btn-success text-white" href="{{.ButtonLink}}"
           >{{.ButtonLabel }}</a
