@@ -86,9 +86,19 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
   <!--Css-->
-  {{ range .Site.Params.custom_css -}}
+  {{ if .Site.Params.custom_css}} {{ range .Site.Params.custom_css -}}
   <!-- minify-->
   {{ $css := resources.Get . | minify }}
   <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
-  {{- end }}
+
+  {{- end }} {{ end }}
+
+  <!-- Page level-->
+  {{ with .Page.Params.custom_css}}
+  <!--Css-->
+  {{ range .}}
+  <link href="{{ . }}" rel="stylesheet" />
+  {{ end}}
+  <!--Css-->
+  {{end}}
 </head>

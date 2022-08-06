@@ -29,9 +29,13 @@
     {{ end }}
   </div>
   {{ with $section.CTA}}
-  <button class="btn btn-wide btn-accent self-center">
+  <a
+    class="btn btn-wide btn-accent self-center"
+    href="{{.URL}}"
+    target="_blank"
+  >
     {{.Label}}
     <span class="h-6 w-6 ml-2">{{ partial "svg" "arrow-right" }}</span>
-  </button>
+  </a>
   {{ end}}
 </div>
