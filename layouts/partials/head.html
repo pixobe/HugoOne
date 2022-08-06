@@ -31,10 +31,9 @@
   <!-- Title -->
   {{ if .IsHome }}
   <!---->
-  {{ $Title = print .Site.Title " | " .Site.Params.home.title }}
+  {{ $Title = print .Site.Title " | " .Site.Params.Description }}
   <!---->
-  {{ else if .Page.Description}} {{ $Title = print .Page.Description " | "
-  .Site.Title }}
+  {{ else if .Page.Title}} {{ $Title = print .Page.Title " | " .Site.Title }}
   <!-- else-->
   {{ else}} {{ $Title = print .Page.Title " - " .Site.Title }} {{ end }}
 
