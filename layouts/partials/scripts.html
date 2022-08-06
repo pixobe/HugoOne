@@ -1,5 +1,8 @@
 <script src="/js/main.js" defer></script>
 
+{{- if .Site.GoogleAnalytics }} {{ template "_internal/google_analytics.html" .
+}} {{- end}}
+
 <!-- check site wide-->
 <!--custom js-->
 {{ range .Site.Params.customJS }}
