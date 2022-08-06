@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="hero min-h-screen bg-primary text-white">
+  <div
+    class="hero-content flex flex-col-reverse md:flex-row w-full lg:w-[80%] justify-between gap-8"
+  >
+    <div>
+      <h1 class="text-[40px] md:!leading-normal font-bold">
+        {{.Page.Params.Title}}
+      </h1>
+      <p class="py-6 text-xl antialiased !leading-normal">
+        {{.Page.Params.Description}}
+      </p>
+      {{ with .Page.Params.cta_primary}}
+      <a class="btn btn-accent m-2" href="{{.URL}}" target="_blank"
+        >{{.Label}}</a
+      >
+      {{ end }} {{ with .Page.Params.cta_secondary}}
+      <a class="btn btn-secondary m-2" href="{{.URL}}" target="_blank"
+        >{{.Label}}</a
+      >
+      {{ end }}
+    </div>
+    {{ with .Page.Params.HeroImg}}
+    <img src="{{.}}" width="500px" />
+    {{ end }}
+  </div>
+</div>
+<div>{{.Content}}</div>
+{{ end }}

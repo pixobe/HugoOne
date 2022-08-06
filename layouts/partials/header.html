@@ -1,48 +1,41 @@
-<nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 m-2">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="{{.Site.BaseURL}}" class="flex items-center">
-      <img src="/images/logo.svg" class="mr-3 h-6" alt="{{.Site.Title}} Logo" />
-      <span
-        class="font-logo self-center text-xl font-semibold whitespace-nowrap uppercase tracking-wide"
-        >{{.Site.Title}}</span
+<nav class="bg-primary text-white">
+  <div class="navbar w-full lg:w-[80%] mx-auto">
+    <div class="navbar-start">
+      {{ $image_resource := resources.Get "/images/logo.png"}}
+      <a
+        class="flex text-[24px] uppercase gap-2 font-semibold justify-center leading-[24px]"
+        href="{{.Site.BaseURL}}"
+        alt="Logo"
       >
-    </a>
-    <div class="flex md:order-2">
-      <button
-        data-collapse-toggle="mobile-menu"
-        type="button"
-        class="inline-flex items-center p-2 text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <span id="mobile-menu-open">{{ partial "icon.html" "breadcrumb"}}</span>
-        <span class="hidden" id="mobile-menu-close">
-          {{ partial "icon.html" "close"}}
-        </span>
-      </button>
+        {{ if $image_resource}}
+        <img src="{{$image_resource.Permalink}}" height="24px" class="h-6" />
+        {{end }} {{.Site.Title}}
+      </a>
     </div>
-    <div
-      class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
-      id="mobile-menu"
-    >
-      <ul
-        class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-normal tracking-wider"
-      >
-        {{ $current := .Page}}
-        <!--Iterate-->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="flex flex-row gap-6 font-normal">
+        {{ $currentPage := .Page}}
+
+        <!---->
         {{ range .Site.Menus.main }}
-        <li>
-          {{ $active := eq $current.RelPermalink .URL}}
-          <a
-            href="{{ .URL | relLangURL}}"
-            class="block py-2 pr-4 pl-3 font-semibold rounded md:bg-transparent md:p-0  hover:text-gray-700 {{ if $active }} text-gray-800  {{ end  }} text-gray-500 "
-            aria-current="page"
-            >{{.Name}}</a
-          >
+        <!---->
+        {{ $isCurrentPage := eq $currentPage.RelPermalink .URL }}
+        <!---->
+        <li
+          class="tracking-wider {{if $isCurrentPage}} text-secondary {{ end}} "
+          {{
+          if
+          $isCurrentPage
+          }}
+          aria-current="page"
+          {{end}}
+        >
+          <a href="{{ .URL | relLangURL}}">{{ .Name }}</a>
         </li>
-        {{end}}
+        {{ end }}
+        <!---->
       </ul>
     </div>
+    <div class="navbar-end"></div>
   </div>
 </nav>

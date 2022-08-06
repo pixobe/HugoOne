@@ -1,45 +1,22 @@
 {{ define "main" }}
-<div class="h-screen">
-  <section class="bg-light h-full block md:flex items-center justify-center">
-    <div
-      class="grid max-w-screen-xl px-4 py-1 md:py-8 md:mx-auto md:my-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 mt-10 md:mt-auto"
-    >
-      <div
-        class="mr-auto place-self-center lg:col-span-7 flex flex-col justify-center items-center md:block"
-      >
-        <img src="images/logo-secondary.png" class="block md:hidden h-24 m-6" />
-        <h1
-          class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-center md:text-left"
-        >
-          {{.Site.Params.caption}}
-        </h1>
-        <p
-          class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl"
-        >
-          {{.Site.Params.description}}
-        </p>
-        <div class="place-self-center flex justify-center md:block">
-          {{ with .Site.Params.Hero.button.primary }}
-          <a
-            href="{{.url}}"
-            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-full bg-primary hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 text-center md:text-left"
-          >
-            {{.name}}
-          </a>
-          {{end}} {{ with .Site.Params.Hero.button.secondary }}
-          <a
-            href="#"
-            class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-dark rounded-full border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
-          >
-            {{.name}}
-          </a>
-          {{end}}
-        </div>
-      </div>
-      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-        <img src="/images/engineering-pixobe-team.svg" alt="mockup" />
-      </div>
+<div class="hero min-h-screen bg-primary text-white">
+  <div
+    class="hero-content flex flex-col-reverse md:flex-row w-full lg:w-[80%] justify-between gap-8"
+  >
+    {{ with .Site.Params.Hero}}
+    <div>
+      <h1 class="text-[40px] md:!leading-normal font-bold">{{.Title}}</h1>
+      <p class="py-6 text-2xl !leading-normal">{{.Caption}}</p>
+      {{ with .cta_primary}}
+      <a class="btn btn-accent m-2" href="{{.URL}}">{{.Label}}</a>
+      {{ end }} {{ with .cta_secondary}}
+      <a class="btn btn-secondary m-2" href="{{.URL}}">{{.Label}}</a>
+      {{ end }}
     </div>
-  </section>
+    {{ with .Image}}
+    <img src="{{.}}" width="500px" />
+    {{ end }} {{end}}
+  </div>
 </div>
+<div>{{.Content}}</div>
 {{ end }}

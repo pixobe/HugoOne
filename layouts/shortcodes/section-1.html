@@ -1,0 +1,41 @@
+{{ $sectionId := .Get "id"}}
+<!---->
+
+{{ $section := ""}}
+<!---->
+{{ with .Page.Params}}
+<!---->
+{{ $section = .Get $sectionId}}
+<!---->
+{{ end }}
+
+<div class="prose-base p-6 text-neutral p-[50px] flex flex-col">
+  <div class="text-center">
+    <h2 class="text-4xl font-semibold">{{$section.Title}}</h2>
+    <p>{{$section.Description | markdownify}}</p>
+  </div>
+  <div class="flex flex-wrap gap-6 mx-auto justify-center">
+    {{ range $section.Card}}
+    <div class="text-center m-2 w-auto">
+      <div
+        class="w-20 h-20 bg-slate-100 rounded-full p-4 text-secondary mx-auto"
+      >
+        {{ partial "svg" .Icon }}
+      </div>
+      <div class="capitalize font-light text-center">
+        <p>{{.Title}}</p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ with $section.CTA}}
+  <a
+    class="btn btn-wide btn-accent self-center"
+    href="{{.URL}}"
+    target="_blank"
+  >
+    {{.Label}}
+    <span class="h-6 w-6 ml-2">{{ partial "svg" "arrow-right" }}</span>
+  </a>
+  {{ end}}
+</div>

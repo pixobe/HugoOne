@@ -1,1 +1,45 @@
 <script src="/js/main.js" defer></script>
+
+{{- if .Site.GoogleAnalytics }} {{ template "_internal/google_analytics.html" .
+}} {{- end}}
+
+<!-- check site wide-->
+<!--custom js-->
+{{ range .Site.Params.customJS }}
+<script
+  src="{{ .src }}"
+  {{if
+  .defer}}
+  defer
+  {{
+  end}}
+  {{if
+  .module}}
+  type="module"
+  {{end}}
+  {{if
+  .nomodule}}
+  nomodule{{end}}
+></script>
+
+{{ end }}
+
+<!-- check page specific -->
+{{ range .Page.Params.customJS }}
+<script
+  src="{{ .src }}"
+  {{if
+  .defer}}
+  defer
+  {{
+  end}}
+  {{if
+  .module}}
+  type="module"
+  {{end}}
+  {{if
+  .nomodule}}
+  nomodule{{end}}
+></script>
+
+{{ end }}
