@@ -10,9 +10,15 @@
       <p class="py-6 text-xl antialiased !leading-normal">
         {{.Page.Params.Description}}
       </p>
-      <a class="btn btn-accent" href="{{.Page.Params.cta_link}}" target="_blank"
-        >{{.Page.Params.cta}}</a
+      {{ with .Page.Params.cta_primary}}
+      <a class="btn btn-accent m-2" href="{{.URL}}" target="_blank"
+        >{{.Label}}</a
       >
+      {{ end }} {{ with .Page.Params.cta_secondary}}
+      <a class="btn btn-secondary m-2" href="{{.URL}}" target="_blank"
+        >{{.Label}}</a
+      >
+      {{ end }}
     </div>
     {{ with .Page.Params.HeroImg}}
     <img src="{{.}}" width="500px" />

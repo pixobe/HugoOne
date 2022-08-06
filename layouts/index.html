@@ -7,7 +7,11 @@
     <div>
       <h1 class="text-[40px] md:!leading-normal font-bold">{{.Title}}</h1>
       <p class="py-6 text-2xl !leading-normal">{{.Caption}}</p>
-      <a class="btn btn-accent" href="{{.cta_link}}">{{.cta_button}}</a>
+      {{ with .cta_primary}}
+      <a class="btn btn-accent m-2" href="{{.URL}}">{{.Label}}</a>
+      {{ end }} {{ with .cta_secondary}}
+      <a class="btn btn-secondary m-2" href="{{.URL}}">{{.Label}}</a>
+      {{ end }}
     </div>
     {{ with .Image}}
     <img src="{{.}}" width="500px" />
