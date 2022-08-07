@@ -43,10 +43,14 @@
   <!-- get resource-->
   {{$image_resource := ""}}
   <!--dummy-->
-  {{if (.Site.Params.MediaImage ) }}
+  {{if (.Page.Params.MediaImage ) }}
   <!--dummy-->
+  {{ $image_resource = resources.Get .Page.Params.MediaImage}}
+  <!--dummy-->
+  {{ else if (.Site.Params.MediaImage )}}
+  <!-- site level-->
   {{ $image_resource = resources.Get .Site.Params.MediaImage}}
-  <!--dummy-->
+  <!--site level-->
   {{end}}
 
   <meta property="og:url" content="{{ .Permalink }}" />
