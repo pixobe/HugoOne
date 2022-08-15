@@ -31,7 +31,7 @@
   <!-- Title -->
   {{ if .IsHome }}
   <!---->
-  {{ $Title = print .Site.Title " | " .Site.Params.Description }}
+  {{ $Title = print .Site.Title " | " .Site.Params.ExtendedTitle }}
   <!---->
   {{ else if .Page.Title}} {{ $Title = print .Page.Title " | " .Site.Title }}
   <!-- else-->
@@ -86,15 +86,11 @@
   <link rel="icon" href="{{$favicon.RelPermalink}}" type="image/x-icon" />
   {{ end }}
 
-  <!--Tailwind css-->
-  <link rel="stylesheet" type="text/css" href="/css/style.css" />
-
   <!--Css-->
   {{ if .Site.Params.custom_css}} {{ range .Site.Params.custom_css -}}
   <!-- minify-->
   {{ $css := resources.Get . | minify }}
   <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
-
   {{- end }} {{ end }}
 
   <!-- Page level-->
@@ -105,4 +101,7 @@
   {{ end}}
   <!--Css-->
   {{end}}
+
+  <!--Tailwind css-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
