@@ -7,8 +7,7 @@ module.exports = {
     darkMode: "media",
     safelist: [],
     theme: {
-        extend: {
-        },
+        extend: {},
     },
     variants: {
         extend: {},

@@ -1,18 +1,19 @@
 {
-  "name": "hugo-tech",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build-tw": "npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css  --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^10.4.7",
-    "daisyui": "^2.20.0",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.4"
-  }
+    "name": "hugo-tech",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-tw": "npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css  --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.4",
+        "autoprefixer": "^10.4.7",
+        "daisyui": "^2.20.0",
+        "postcss": "^8.4.14",
+        "tailwindcss": "^3.1.4"
+    }
 }
