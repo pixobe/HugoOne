@@ -7,7 +7,6 @@
     @apply text-lg;
     @apply my-5;
     @apply text-lg;
-    @apply text-complimentary;
   }
 }
 
@@ -30,12 +29,11 @@
 
   .page a {
     @apply underline;
-    @apply hover:text-complimentary;
   }
 
   .page pre {
-    @apply bg-primary-200;
-    @apply text-secondary-200;
+    @apply bg-primary;
+    @apply text-secondary;
     @apply text-sm;
     @apply p-5;
     @apply break-words;
@@ -56,4 +54,20 @@
     @apply border-collapse;
     @apply p-3;
   }
+}
+
+.contact-form {
+  @apply border rounded-lg p-8 flex flex-col gap-2;
+}
+
+.form-element {
+  @apply flex flex-col gap-2;
+}
+
+.form-element label {
+  @apply font-normal text-lg;
+}
+
+.form-element input {
+  @apply border border-accent rounded-lg p-1;
 }

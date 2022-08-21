@@ -1,55 +1,30 @@
-<footer class="p-4 sm:p-6 bg-primary-200 text-secondary-200">
-    <div class="mx-auto max-w-screen-xl">
-      <div
-        class="grid grid-rows-2 justify-center md:grid-rows-1 md:grid-cols-footer md:justify-between"
-      >
-        <div class="mb-6 md:mb-0">
-          <a href="{{.Site.BaseURL}}" class="flex items-center">
-            {{ $image := resources.Get "/images/logo.png" }}
-            <img  src="{{$image.Permalink}}" class="mr-3 h-8" alt="{{.Site.Title}} Logo" />
-            <span
-              class="self-center text-2xl font-semibold whitespace-nowrap text-white uppercase"
-              >{{.Site.Title}}</span
-            >
-          </a>
-          <p class="text-secondary-300 mt-6 mb-6 md:w-[60%]">{{.Site.Params.description}}</p>
-        </div>
-        <div class="grid grid-cols-{{len .Site.Params.Footer.sitemap.main}} gap-6 md:gap-8 justify-items-start">
-          {{ range .Site.Params.Footer.sitemap.main }}
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-primary-100 uppercase">
-              {{ .title }}
-            </h2>
-            <ul class="text-secondary-300">
-              {{ range .link }}
-              <li class="mb-4">
-                <a href="{{.url}}" class="hover:underline" {{if eq .open "_blank"}} target="_blank" {{end}}
-                  >{{.name}}</a
-                >
-              </li>
-              {{end}}
-            </ul>
-          </div>
-          {{end}}
-        </div>
-      </div>
-      <hr class="my-6 border border-primary-100 sm:mx-auto lg:my-8" />
-      <div
-        class="py-6 px-4 flex flex-col items-center md:flex-row md:items-center md:justify-between text-primary-100"
-      >
-        {{ with .Site.Params.footer.service}}
-        <span class="text-sm sm:text-center"
-          >© 2022 <a href="{{.copyrightUrl}}">{{.copyright}}</a>
-        </span>
-        {{end}}
-        <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
-          {{ range .Site.Params.Footer.socialmedia.link }}
-          <a href="{{.url}}" class="hover:text-white" target="_blank">
-            {{with .media}} {{ partial "icon.html" .}} {{end}}
-          </a>
-          {{end}}
-        </div>
-      </div>
+<div class="bg-primary text-white">
+  <footer class="footer p-10 w-[80%] mx-auto">
+    <div>
+      {{ range .Site.Params.Footer.sitemap.main }}
+      <span class="footer-title">{{.Title}}</span>
+      {{ range .item }}
+      <a class="link link-hover" href="{{.URL}}">{{.Name}}</a>
+      {{ end }} {{ end }}
     </div>
   </footer>
-  
+  <div style="background-color: rgba(0, 0, 0, 0.1)" class="text-secondary">
+    <footer class="footer items-center p-10 w-[80%] mx-auto">
+      <div class="items-center grid-flow-col">
+        <div class="w-5 h-5 text-secondary">
+          {{ partial "svg" .Site.Params.svg_logo }}
+        </div>
+        <p>Copyright © 2022 - All right reserved</p>
+      </div>
+      <div
+        class="grid-flow-col gap-4 md:place-self-center md:justify-self-end fill-white"
+      >
+        {{ range .Site.Params.Footer.socialmedia }}
+        <a href="{{.URL}}" target="_blank" alt="{{.Media}}">
+          <div class="w-6 h-6">{{ partial "svg" .Icon }}</div>
+        </a>
+        {{end}}
+      </div>
+    </footer>
+  </div>
+</div>
