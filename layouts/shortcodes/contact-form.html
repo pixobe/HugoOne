@@ -1,7 +1,25 @@
-<form class="mx-auto max-x-ws">
-  <input
-    type="text"
-    placeholder="Type here"
-    class="input input-bordered input-warning w-full max-w-xs"
-  />
-</form>
+<div class="bg-tertiary p-6">
+  <div class="text-center my-2">
+    <p>{{.Page.Params.caption}}</p>
+  </div>
+  <form
+    name="colorgizer-download"
+    class="mx-auto max-x-ws contact-form"
+    action="/thankyou-for-choosing"
+    method="POST"
+    data-netlify="true"
+  >
+    {{range .Page.Params.contact_form.Fields}}
+    <div>
+      <input
+        type="text"
+        name="{{.Name}}"
+        placeholder="{{.Label}}"
+        required
+        class="input input-bordered input-warning w-full lg:max-w-xs"
+      />
+    </div>
+    {{ end}}
+    <button class="btn btn-accent" type="submit">Download</button>
+  </form>
+</div>

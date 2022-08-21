@@ -56,10 +56,10 @@
   }
 }
 
-.pixobe-forms {
+.contact-form {
   @apply mt-2 flex flex-col gap-4 w-full  lg:w-[300px] mx-auto;
 }
 
-.pixobe-forms input {
+.contact-form input {
   @apply w-full;
 }

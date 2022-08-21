@@ -10,7 +10,9 @@ module.exports = {
             gridTemplateColumns: {
                 footer: "1fr auto"
             },
-
+            colors: {
+                tertiary: '#f1eee6',
+            }
         },
     },
     plugins: [
@@ -23,7 +25,6 @@ module.exports = {
                 hugotech: {
                     primary: "#002e47",
                     secondary: "#90b0d0",
-                    tertiary: '#f1eee6',
                     accent: "#ff9d28",
                     neutral: "#0c182d",
                     "base-100": "#FFFFFF",
