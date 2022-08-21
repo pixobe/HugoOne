@@ -8,7 +8,7 @@
         class="md:mr-auto place-self-center lg:col-span-7 text-center md:text-left"
       >
         <h1
-          class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl"
+          class="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl"
         >
           {{.Site.Params.home.title}}
         </h1>
@@ -21,14 +21,14 @@
         {{if .Site.Params.home.primaryButton}}
         <a
           href="{{.Site.Params.home.primaryButtonUrl}}"
-          class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-secondary rounded-lg bg-accent hover:bg-primary focus:ring-4 focus:ring-primary-300"
+          class="btn btn-accent m-2"
         >
           {{.Site.Params.home.primaryButton}}
         </a>
         {{end}} {{if .Site.Params.home.secondaryButton}}
         <a
           href="{{.Site.Params.home.secondaryButtonUrl}}"
-          class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-primary-900 border border-gray-300 rounded-lg"
+          class="btn btn-secondary m-2"
         >
           {{.Site.Params.home.secondaryButton}} {{ partial "icon.html"
           "arrow-right"}}

@@ -56,18 +56,10 @@
   }
 }
 
-.contact-form {
-  @apply border rounded-lg p-8 flex flex-col gap-2;
+.pixobe-forms {
+  @apply mt-2 flex flex-col gap-4 w-full  lg:w-[300px] mx-auto;
 }
 
-.form-element {
-  @apply flex flex-col gap-2;
-}
-
-.form-element label {
-  @apply font-normal text-lg;
-}
-
-.form-element input {
-  @apply border border-accent rounded-lg p-1;
+.pixobe-forms input {
+  @apply w-full;
 }
