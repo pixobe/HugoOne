@@ -63,3 +63,104 @@
 .contact-form input {
   @apply w-full;
 }
+
+.social-share {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  @apply bg-tertiary w-full gap-2 p-2;
+}
+
+.social-share a {
+  border-radius: 25px;
+  padding: 0.25rem 0.5rem;
+  background: $white;
+  border: 1px solid transparent;
+  transition: background ease 0.3s, color ease 0.3s;
+  margin-bottom: 1em;
+
+  &::before {
+    display: none;
+  }
+}
+
+.facebook {
+  border-color: #4267b2;
+  color: #4267b2;
+
+  &:hover {
+    background: #4267b2;
+    color: $white;
+  }
+}
+
+.twitter {
+  border-color: #1da1f2;
+  color: #1da1f2;
+
+  &:hover {
+    background: #1da1f2;
+    color: $white;
+  }
+}
+
+.reddit {
+  border-color: #ff4500;
+  color: #ff4500;
+
+  &:hover {
+    background: #ff4500;
+    color: $white;
+  }
+}
+
+.stumbleupon {
+  border-color: #eb471d;
+  color: #eb471d;
+
+  &:hover {
+    background: #eb471d;
+    color: $white;
+  }
+}
+
+.tumblr {
+  border-color: #35465c;
+  color: #35465c;
+
+  &:hover {
+    background: #35465c;
+    color: $white;
+  }
+}
+
+.pocket {
+  border-color: #ed4255;
+  color: #ed4255;
+
+  &:hover {
+    background: #ed4255;
+    color: $white;
+  }
+}
+
+.linkedin {
+  border-color: #2867b2;
+  color: #2867b2;
+
+  &:hover {
+    background: #2867b2;
+    color: $white;
+  }
+}
+
+.email {
+  border-color: #00a4ef;
+  color: #00a4ef;
+
+  &:hover {
+    background: #00a4ef;
+    color: $white;
+  }
+}

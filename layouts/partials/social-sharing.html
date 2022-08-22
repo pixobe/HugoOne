@@ -1,0 +1,40 @@
+<div class="social-share">
+  <h3>Please Consider Sharing</h3>
+  <!--https://www.remysheppard.com/blog/hugo-share-buttons/-->
+  {{ $current:= .Page}}
+  <span class="social-share">
+    {{ range .Site.Params.socialmedia}}
+    <!-- facebook-->
+    {{ if eq .Media "facebook"}}
+    <a
+      href="https://www.facebook.com/sharer.php?u={{ $current.Permalink }}"
+      target="_blank"
+      class="facebook"
+    >
+      <div class="w-8 h-8 {{.Media}}">{{ partial "svg.html" .Media}}</div>
+    </a>
+    {{ else if eq .Media "twitter"}}
+    <a
+      href="https://twitter.com/share?url={{ $current.Permalink }}&text={{ $current.Description }}&via={{.Handle}}"
+      target="_blank"
+      class="twitter"
+    >
+      <div class="w-8 h-8 {{.Media}}">{{ partial "svg.html" .Media}}</div>
+    </a>
+
+    {{ else if eq .Media "reddit"}}
+
+    <a
+      href="https://reddit.com/submit?url={{ $current.Permalink }}&title={{ $current.Description }}"
+      target="_blank"
+      class="reddit"
+    >
+      <div class="w-8 h-8 {{.Media}}">{{ partial "svg.html" .Media}}</div>
+    </a>
+
+    {{end}}
+
+    <!-- social share ends-->
+    {{ end}}
+  </span>
+</div>

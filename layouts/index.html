@@ -30,8 +30,11 @@
           href="{{.Site.Params.home.secondaryButtonUrl}}"
           class="btn btn-secondary m-2"
         >
-          {{.Site.Params.home.secondaryButton}} {{ partial "icon.html"
-          "arrow-right"}}
+          {{.Site.Params.home.secondaryButton}}
+          <span class="h-6 w-6 ml-4"
+            >{{ partial "svg.html" "arrow-right"}}</span
+          >
+          <!---->
         </a>
         {{end}}
       </div>

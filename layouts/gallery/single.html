@@ -1,10 +1,13 @@
 {{ define "main" }}
-<main class="min-h-screen text-primary">
+<main class="min-h-screen">
   <section
     class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 mt-0 md:mt-5 max-w-screen-md"
   >
     {{ partial "breadcrumb.html" .}}
-    <div class="drop-shadow-md">{{.Content}}</div>
+    <div class="border border-gray-200 rounded-lg">
+      <div>{{.Content}}</div>
+      <div>{{partial "social-sharing.html" . }}</div>
+    </div>
   </section>
 </main>
 
