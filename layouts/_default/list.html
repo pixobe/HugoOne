@@ -1,9 +1,15 @@
 {{ define "main" }}
-<div class="min-h-screen text-primary">
-  <div class="w-full text-primary p-10 text-center font-bold">
-    <h1 class="text-4xl my-6">{{ .Title }}</h1>
-    <h2 class="text-xl font-thin antialiased">{{.Description}}</h2>
-  </div>
-  <div>{{.Content}}</div>
+<div class="text-center my-16">
+  <h1 class="text-4xl font-bold text-primary my-4">{{.Title}}</h1>
+  <h2 class="text-xl font-thin antialiased">{{.Description}}</h2>
 </div>
+<article class="prose mx-auto">{{.Content}}</article>
+{{ $theme := printf "cards/%s.html" (or .Page.Params.ListTheme .Type)}}
+<ul class="flex flex-wrap gap-4 p-4 mx-auto list {{.Type}}">
+  <!-- Ranges through content/posts/*.md -->
+  {{ range .Pages }}
+  <!-- Theme variable-->
+  <li>{{partial $theme .}}</li>
+  {{ end }}
+</ul>
 {{ end }}

@@ -6,3 +6,44 @@
   background-size: 100%;
   background-position: center;
 }
+
+.card-theme-2 {
+  -webkit-background-image: url(/images/card-theme-2.svg);
+  background-image: url(/images/card-theme-2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.prose {
+  max-width: 80ch;
+}
+
+/**
+Fot tutorial
+**/
+
+.list.tutorial {
+  width: 80ch;
+  @apply py-4 px-0;
+}
+
+.list.tutorial li {
+  @apply basis-full;
+}
+
+.weight-1 {
+  @apply text-blue-500;
+}
+
+.weight-2 {
+  @apply text-orange-500;
+}
+
+.weight-3 {
+  @apply text-green-500;
+}
+
+.weight-4 {
+  @apply text-amber-500;
+}
