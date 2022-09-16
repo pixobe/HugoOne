@@ -3,13 +3,15 @@
   <h1 class="text-4xl font-bold text-primary my-4">{{.Title}}</h1>
   <h2 class="text-xl font-thin antialiased">{{.Description}}</h2>
 </div>
-<article class="prose mx-auto">{{.Content}}</article>
-{{ $theme := printf "cards/%s.html" (or .Page.Params.ListTheme .Type)}}
-<ul class="flex flex-wrap gap-4 p-4 mx-auto list {{.Type}}">
-  <!-- Ranges through content/posts/*.md -->
-  {{ range .Pages }}
-  <!-- Theme variable-->
-  <li>{{partial $theme .}}</li>
-  {{ end }}
-</ul>
+<article class="p-8 box-border max-w-4xl mx-auto">
+  <div class="prose prose-base max-w-4xl">{{.Content}}</div>
+  {{ $theme := (or .Page.Params.theme "default") }}
+  <ul class="flex gap-4 my-4 justify-center items-stretch {{$theme}}">
+    <!-- Ranges through content/posts/*.md -->
+    {{ range .Pages }}
+    <!-- Theme variable-->
+    <li>{{partial (printf "cards/%s.html" $theme) .}}</li>
+    {{ end }}
+  </ul>
+</article>
 {{ end }}

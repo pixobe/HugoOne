@@ -1,0 +1,14 @@
+<div class="card card-default">
+  <div class="card-header">
+    <div class="icon">{{ partial "svg" .Params.Icon }}</div>
+    <h2>{{.Title}}</h2>
+    <p class="text-xs text-gray-500">{{.Description}}</p>
+  </div>
+  <p class="card-content">{{.Params.QuickContent}}</p>
+  <div class="card-action">
+    <a class="btn btn-wide btn-accent" href="{{.Permalink}}"
+      ><span class="h-8 w-8 mr-2">{{ partial "svg" "read" }}</span>
+      {{.LinkTitle}}
+    </a>
+  </div>
+</div>
