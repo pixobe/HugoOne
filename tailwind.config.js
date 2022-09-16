@@ -19,6 +19,7 @@ module.exports = {
     plugins: [
         require("daisyui"),
         require('@tailwindcss/typography'),
+        require('tailwindcss/nesting')
     ],
     daisyui: {
         themes: [
