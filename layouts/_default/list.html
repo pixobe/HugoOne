@@ -6,7 +6,7 @@
 <article class="p-8 box-border max-w-4xl mx-auto">
   <div class="prose prose-base max-w-4xl">{{.Content}}</div>
   {{ $theme := (or .Page.Params.theme "default") }}
-  <ul class="flex gap-4 my-4 justify-center items-stretch {{$theme}}">
+  <ul class="flex flex-wrap gap-4 my-4 justify-center items-stretch {{$theme}}">
     <!-- Ranges through content/posts/*.md -->
     {{ range .Pages }}
     <!-- Theme variable-->

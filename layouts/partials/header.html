@@ -56,11 +56,26 @@
         </label>
         <ul
           tabindex="0"
-          class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-accent-content rounded-box w-52"
         >
-          <li><a>Homepage</a></li>
-          <li><a>Portfolio</a></li>
-          <li><a>About</a></li>
+          <!---->
+          {{ range .Site.Menus.main }}
+          <!---->
+          {{ $isCurrentPage := eq $currentPage.RelPermalink .URL }}
+          <!---->
+          <li
+            class="tracking-wider {{if $isCurrentPage}} text-secondary {{ end}} "
+            {{
+            if
+            $isCurrentPage
+            }}
+            aria-current="page"
+            {{end}}
+          >
+            <a href="{{ .URL | relLangURL}}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+          <!---->
         </ul>
       </div>
     </div>
