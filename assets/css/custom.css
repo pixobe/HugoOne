@@ -37,5 +37,5 @@ ul.tutorial {
   @apply py-4 text-xl font-normal;
 }
 pre {
-  @apply w-96 md:w-auto;
+  @apply w-full;
 }

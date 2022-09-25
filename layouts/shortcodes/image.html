@@ -1,13 +1,22 @@
-{{ $banner := resources.GetMatch "pathToYourImage" }} {{ $tiny := ($banner.Fill
-"480x280 q90") }} {{ $small := ($banner.Fill "768x280 q90") }} {{ $medium :=
-($banner.Fill "1024x280 q90") }} {{ $large := ($banner.Fill "1366x280 q90") }}
+{{- $alt := .Get "alt" -}} {{- $res := resources.GetMatch (.Get "src") -}} {{-
+$width := or (.Get "width") "100%" -}}
+<!---->
+{{- $ws := slice 480 768 1366 1920 -}} {{- $srcset := slice -}} {{- range $ws
+-}} {{/* to avoid creating an image that is larger than the source */}} {{- if
+(le . $res.Width) -}} {{- $w := printf "%dx" . -}} {{- $url := ($res.Resize
+$w).RelPermalink | safeURL -}} {{- $fmt := printf "%s %dw" $url . -}} {{-
+$srcset = $srcset | append $fmt -}} {{- end -}} {{- end -}} {{- $set := delimit
+$srcset "," -}}
 
-<img
-  srcset="
-    {{- with $tiny.RelPermalink -}}{{.}} 480w{{- end -}}
-    {{- with $small.RelPermalink -}}, {{.}} 768w{{- end -}}
-    {{- with $medium.RelPermalink -}}, {{.}} 1024w{{- end -}}
-    {{- with $large.RelPermalink -}}, {{.}} 1366w{{- end -}}"
-  src="{{ $banner.RelPermalink }}"
-  alt="banner-image"
-/>
+<figure class="flex flex-col items-center">
+  <img
+    srcset="{{ $set }}"
+    sizes="(max-width: 480px) 480px, 100vw"
+    src="{{ $res.RelPermalink }}"
+    alt="{{ $alt }}"
+    width="{{$width}}"
+    height="auto"
+    class="border border-gray-200 rounded-sm"
+  />
+  <figcaption>{{ $alt }}</figcaption>
+</figure>

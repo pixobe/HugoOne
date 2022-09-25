@@ -4,10 +4,10 @@
     <h1>{{.Title}}</h1>
     <h2>{{.Description}}</h2>
   </div>
-  <article
-    class="mx-auto flex flex-row flex-wrap justify-start lg:justify-center gap-8"
+  <div
+    class="prose prose-base max-w-none w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto]"
   >
-    <section class="prose prose-base max-w-4xl p-4 md:p-8">
+    <section>
       {{.Content}}
       <div>
         <h2>Coming next</h2>
@@ -19,8 +19,8 @@
         {{end}}
       </div>
     </section>
-    <aside class="max-w-content my-4">
-      <section class="prose prose-sm">
+    <aside>
+      <section>
         {{ $related := .Site.Pages.Related . | first 5 }} {{ with $related }}
         <h2>See Also</h2>
         <ul>
@@ -31,6 +31,6 @@
         {{end}}
       </section>
     </aside>
-  </article>
+  </div>
 </div>
 {{ end }}

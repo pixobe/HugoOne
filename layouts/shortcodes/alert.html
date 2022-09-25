@@ -1,0 +1,10 @@
+{{$type := "info"}} {{ if (.Get "type") }} {{ $type = .Get "type"}} {{end}}
+
+<div
+  class='alert shadow-md {{if eq $type "info"}} alert-info  {{else if eq $type "success"}} alert-success {{end}} '
+>
+  <div>
+    <div class="h-5 w-5">{{ partial "svg.html" $type}}</div>
+    <span>{{.Inner}}</span>
+  </div>
+</div>
