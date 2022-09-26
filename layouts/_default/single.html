@@ -5,13 +5,13 @@
     <h2>{{.Description}}</h2>
   </div>
   <div
-    class="prose prose-base max-w-none w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto]"
+    class="prose prose-base max-w-none w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto p-2"
   >
     <section>
       {{.Content}}
       <div>
-        <h2>Coming next</h2>
         {{with .PrevInSection}}
+        <h2>Coming next</h2>
         <p>
           <a href="{{.Permalink}}" class="text-blue-500">{{.Title}}</a>
           : {{.Description}}
@@ -33,4 +33,11 @@
     </aside>
   </div>
 </div>
+<!---->
+{{ if ne .Page.Params.subscribe false}}
+<div class="box-border p-2 md:p-8 bg-secondary opacity-70 mt-8">
+  {{ partial "subscribe.html"}}
+</div>
+{{ end }}
+<!---->
 {{ end }}
