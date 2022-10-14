@@ -31,12 +31,13 @@
   <!-- Title -->
   {{ if .IsHome }}
   <!---->
-  {{ $Title = print .Site.Title " - " .Site.Params.home.title }}
+  {{ $Title = print .Site.Title " | " .Site.Params.home.title }}
   <!---->
-  {{ else if .Page.Description}} {{ $Title = print .Page.Description " - "
-  .Site.Title }}
-  <!-- else-->
-  {{ else}} {{ $Title = print .Page.Title " - " .Site.Title }} {{ end }}
+  {{ else}}
+  <!---->
+  {{ $Title = print .Page.Title " | " .Site.Title }}
+  <!---->
+  {{ end }}
 
   <title>{{$Title}}</title>
 
