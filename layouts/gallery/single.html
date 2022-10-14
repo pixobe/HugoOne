@@ -1,14 +1,42 @@
 {{ define "main" }}
-<main class="min-h-screen">
-  <section
-    class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 mt-0 md:mt-5 max-w-screen-md"
-  >
-    {{ partial "breadcrumb.html" .}}
-    <div class="border border-gray-200 rounded-lg">
-      <div>{{.Content}}</div>
-      <div>{{partial "social-sharing.html" . }}</div>
-    </div>
-  </section>
+<main class="min-h-screen pb-8 bg-orange-200">
+  <div class="mx-8">{{ partial "breadcrumb.html" .}}</div>
+  <div class="flex flex-wrap flex-row gap-16 justify-center">
+    <section>
+      <div class="border border-gray-200 rounded-lg">
+        <div>{{.Content}}</div>
+        <div>{{partial "social-sharing.html" . }}</div>
+      </div>
+    </section>
+    <aside>
+      {{ $related := .Site.Pages.Related . | first 3 }} {{ with $related }}
+      <ul>
+        {{ range . }} {{ $current := .}}
+        <li class="m-2">
+          {{- with .Params.image -}}
+          <!---->
+          {{ $image := resources.Get . }}
+          <!---->
+          {{ $image := $image.Resize "200x webp" }}
+          <!---->
+          <a href="{{ $current.RelPermalink }}">
+            <figure>
+              <img
+                src="{{$image.RelPermalink}}"
+                alt="www.pixobe.com"
+                class="w-100 rounded-md"
+              />
+              <figcaption class="text-center">{{ $current.Title }}</figcaption>
+            </figure>
+          </a>
+          {{ end }}
+          <!---->
+        </li>
+        {{ end }}
+      </ul>
+      {{end}}
+    </aside>
+  </div>
 </main>
 
 {{ end }}
