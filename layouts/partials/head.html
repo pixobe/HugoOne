@@ -43,7 +43,7 @@
 
   <!-- Check if an image exist in the path then add to meta else fall back to logo.-->
   {{- $image := resources.Get ( printf "images/%s/%s.jpg" .Section (lower
-  (replaceRE "(\\s)" "-" .Title))) -}}
+  (replaceRE "(\\s)" "-" .LinkTitle))) -}}
 
   <!-- if an image doesnt exist for a section get from base url-->
   {{if not ($image) }} {{ $image = "images/social-media-card.png"}} {{end}}
