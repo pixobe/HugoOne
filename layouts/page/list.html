@@ -19,13 +19,11 @@
         </div>
       </div>
 
-      <div
-        class="bg-tertiary p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full"
-      >
+      <div class="p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full">
         {{ range .Pages.ByPublishDate.Reverse }}
         <!-- published date-->
         <!---->
-        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2022" }}
+        {{ $dateFormat := .PublishDate.Format "January 2, 2006" }}
         <!-- card-->
         <a href="{{ .RelPermalink }}" class="hover:bg-slate">
           {{partial "cards/card.html" (dict "Title" .Title "Subtitle" ""
