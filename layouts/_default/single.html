@@ -4,12 +4,12 @@
     class="container flex flex-wrap flex-col mx-0 md:mx-auto p-0 md:p-4 mt-0 md:mt-5 max-w-screen-md"
   >
     {{ partial "breadcrumb.html" .}}
-    <div class="page">
+    <div class="border border-slate-100 bg-white">
       <div class="bg-neutral text-white">
         <div class="p-6 md:p-10 mx-auto max-w-screen-xl">
           <div class="py-6">
             <h1
-              class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl"
+              class="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none xl:text-4xl text-center"
             >
               {{.Page.Title}}
             </h1>
@@ -18,7 +18,9 @@
         </div>
       </div>
 
-      <div class="p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full">
+      <div
+        class="prose lg:prose-xl p-6 md:p-10 w-full mx-auto max-w-screen-xl min-h-full"
+      >
         {{ .Content }}
       </div>
     </div>
