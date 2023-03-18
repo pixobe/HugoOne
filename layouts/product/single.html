@@ -11,7 +11,10 @@
         {{.Page.Params.Description}}
       </p>
       {{ with .Page.Params.cta_primary}}
-      <a class="btn btn-accent m-2" href="{{.URL}}" target="_blank"
+      <a
+        class="btn btn-accent m-2"
+        href="{{.URL}}"
+        target="{{ if .target }}{{ .target }}{{ else }}_blank{{ end }}"
         >{{.Label}}</a
       >
       {{ end }} {{ with .Page.Params.cta_secondary}}
