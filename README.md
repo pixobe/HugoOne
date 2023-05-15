@@ -1,3 +1,3 @@
 # HugoOne (Maagha)
 
-A cool and vibrant theme for bloggers.
+A cool and vibrant theme for bloggers. Change updates
