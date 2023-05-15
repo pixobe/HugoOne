@@ -2547,10 +2547,6 @@ h3 {
   max-width: 24rem;
 }
 
-.flex-none {
-  flex: none;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -2699,11 +2695,6 @@ h3 {
   background-color: rgb(241 238 230 / var(--tw-bg-opacity));
 }
 
-.bg-orange-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
-}
-
 .fill-white {
   fill: #fff;
 }
@@ -2773,10 +2764,6 @@ h3 {
 
 .pt-14 {
   padding-top: 3.5rem;
-}
-
-.pb-8 {
-  padding-bottom: 2rem;
 }
 
 .text-center {
