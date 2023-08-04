@@ -1,12 +1,5 @@
-{{ $sectionId := .Get "id"}}
 <!---->
-{{ $section := ""}}
-<!---->
-{{ with .Page.Params}}
-<!---->
-{{ $section = .Get $sectionId}}
-<!---->
-{{ end }}
+{{ $section :=  index .Page.Params (.Get 0) }}
 
 <div class="prose-base p-6 text-neutral p-[50px] flex flex-col">
   <div class="text-center">

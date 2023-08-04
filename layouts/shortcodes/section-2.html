@@ -1,11 +1,9 @@
 <section class="prose-lg bg-slate-50 p-6 text-neutral p-[50px]">
-  {{ $key := .Get "id"}}
-  <!---->
   <div class="flex flex-col md:flex-row gap-8 w-full lg:w-[80%] mx-auto">
     <div>
-      {{ with .Page.Params}}
+      {{ $product := index .Page.Params (.Get 0) }}
+      {{ with $product}}
       <!---->
-      {{ $product := .Get $key}}
       <h2 class="text-4xl font-bold uppercase mt-0">{{$product.Title}}</h2>
       <p class="font-normal">{{$product.Description}}</p>
       <div>

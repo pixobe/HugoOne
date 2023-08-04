@@ -1,13 +1,4 @@
-{{ $sectionId := .Get "id"}}
-<!---->
-
-{{ $section := ""}}
-<!---->
-{{ with .Page.Params}}
-<!---->
-{{ $section = .Get $sectionId}}
-<!---->
-{{ end }}
+{{ $section :=  index .Page.Params (.Get 0) }}
 
 <section class="text-center prose-lg bg-slate-50 p-6 text-neutral">
   <h2 class="text-4xl font-bold">{{$section.Title}}</h2>
