@@ -17,8 +17,9 @@
         target="{{ if .target }}{{ .target }}{{ else }}_blank{{ end }}"
         >{{.Label}}</a
       >
-      {{ end }} {{ with .Page.Params.cta_secondary}}
-      <a class="btn btn-secondary m-2" href="{{.URL}}" target="_blank"
+      {{ end }} 
+      {{ with .Page.Params.cta_secondary}}
+      <a class="btn btn-secondary m-2" href="{{.URL}}"  target="{{ if .target }}{{ .target }}{{ else }}_blank{{ end }}"
         >{{.Label}}</a
       >
       {{ end }}
