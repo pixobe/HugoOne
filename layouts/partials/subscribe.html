@@ -1,23 +1,13 @@
-<form
-  name="subscribers"
-  method="POST"
-  action="/thankyou"
-  method="POST"
-  data-netlify="true"
-  class="flex justify-center"
->
+<form method="GET" data-pixobe="colorgizer-updates" class="flex flex-col items-center">
   <div class="flex flex-row w-full lg:w-[450px]">
-    <input
-      type="text"
-      placeholder="Subscribe for updates"
-      name="subscriber"
-      class="p-2 box-border rounded-l-full h-[42px] w-full hover:outline-none focus:outline-none hover:border-accent border border-primary border-r-none"
-    />
-    <button
-      type="submit"
-      class="rounded-r-full bg-primary text-secondary h-[42px] w-[42px] p-2"
-    >
+    <input type="email" placeholder="Subscribe for updates" name="email"
+      class="p-2 box-border rounded-l-full h-[42px] w-full hover:outline-none focus:outline-none hover:border-accent border border-primary border-r-none" />
+    <button type="submit" class="rounded-r-full bg-primary text-secondary h-[42px] w-[42px] p-2">
       {{ partial "svg.html" "mail"}}
     </button>
   </div>
+  <div>
+     <p id="msg"></p>
+  </div>
 </form>
+ 
