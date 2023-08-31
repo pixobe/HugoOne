@@ -28,7 +28,7 @@ async function submitForm(name, data) {
 
     try {
         // URL to which the POST request is sent
-        const url = `http://localhost:3000/forms`;
+        const url = `https://pixobe.com/api/forms`;
         // Options for the fetch request
         const options = {
             method: 'POST',
