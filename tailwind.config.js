@@ -10,7 +10,10 @@ module.exports = {
         extend: {
             colors: {
                 complimentary: "#ef4444"
-            }
+            },
+            gridTemplateColumns: {
+                'section-2': 'auto 1fr',
+              }
         },
     },
     variants: {

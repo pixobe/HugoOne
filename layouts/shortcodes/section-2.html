@@ -1,6 +1,6 @@
 {{ $product := index .Page.Params (.Get 0) }}
 <section class="prose-lg bg-slate-50 p-6 text-neutral p-[50px]" id="{{ (.Get 0)}}">
-  <div class="flex flex-col md:flex-row gap-8 w-full lg:w-[80%] mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-section-2 gap-8">
     <div>
       {{ with $product}}
       <!---->
@@ -16,6 +16,7 @@
       </div>
       {{ end}}
     </div>
+    <!--inner content-->
     <div>{{.Inner}}</div>
   </div>
 </section>
